@@ -1,3 +1,4 @@
+import { CarrinhoProvider } from 'common/context/Carrinho'
 import { UsuarioProvider } from 'common/context/Usuario'
 import Carrinho from 'pages/Carrinho'
 import Feira from 'pages/Feira'
@@ -10,11 +11,17 @@ export default function Router() {
       <UsuarioProvider>
         <Routes>
           <Route exact path='/' element={<Login />} />
-          <Route exact path='/feira' element={<Feira />} />
+          <Route path='/feira' element=
+            {
+              <CarrinhoProvider>
+                <Feira />
+              </CarrinhoProvider>
+            }
+          />
         </Routes>
       </UsuarioProvider>
       <Routes>
-       <Route exact path='/carrinho' element={<Carrinho />} />
+        <Route  path='/carrinho' element={<Carrinho />} />
       </Routes>
     </BrowserRouter>
   )

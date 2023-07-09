@@ -4,6 +4,7 @@ import { Container } from './styles';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
 import { IconButton } from '@mui/material';
+import { useCarrinhoContext } from 'common/context/Carrinho';
 
 
 function Produto({
@@ -13,6 +14,9 @@ function Produto({
   valor,
   unidade
 }) {
+  const { carrinho, adicionarProduto } = useCarrinhoContext();
+  const produtoNoCarrinho = carrinho.find(itemDoCarrinho => itemDoCarrinho.id === id);
+  
   return (
       <Container>
         <div>
@@ -30,7 +34,9 @@ function Produto({
           >
             <AiOutlineMinus />
           </IconButton>
-          <IconButton>
+          { produtoNoCarrinho?.quantidade || 0 }
+          <IconButton 
+            onClick={() => adicionarProduto({ nome, foto, id, valor})}>
             <AiOutlinePlus />
           </IconButton>
         </div>
