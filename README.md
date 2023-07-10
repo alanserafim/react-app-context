@@ -13,6 +13,7 @@
 | 3 | Hooks customizados para externalizar a reponsabilidade de mudar o contexto, contexto de carrinho de compras, SOLID
 | 4 | Utilizar hooks React para escutar mudanças no contexto e deixá-lo dinâmico, vantagens de manter a responsabilidade de mudar o contexto centralizado fora dos componentes.
 | 5 | Criação e uso de mais de um contexto no mesmo componente, utilização de valores estáticos para popular o contexto.
+| 6 | Comunicação entre contextos, useMemo
 
 
 
