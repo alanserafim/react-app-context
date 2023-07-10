@@ -1,6 +1,6 @@
 import { Button, Input, InputAdornment, InputLabel } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import { Container, InputContainer, Titulo } from "./styles";
-import { NavLink } from "react-router-dom";
 
 import { UsuarioContext } from "common/context/Usuario";
 import { useContext } from "react";
@@ -9,6 +9,7 @@ import { useContext } from "react";
 function Login() {
   
   const { nome, setNome, saldo, setSaldo} = useContext(UsuarioContext);
+  const navegar = useNavigate();
 
   return (
     <Container>
@@ -40,16 +41,14 @@ function Login() {
                   }
                 />
               </InputContainer>
-              <NavLink to="/feira">
                 <Button
                   variant="contained"
                   color="primary"
-                  onClick={() => console.log(nome, saldo)}
+                  onClick={() => navegar("/feira")}
                   disabled={nome.length < 3}
                 >
                   Avançar
                 </Button>
-              </NavLink>
     </Container>
   )
 };
