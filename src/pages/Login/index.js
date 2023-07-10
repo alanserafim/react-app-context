@@ -45,6 +45,7 @@ function Login() {
                   variant="contained"
                   color="primary"
                   onClick={() => console.log(nome, saldo)}
+                  disabled={nome.length < 3}
                 >
                   Avançar
                 </Button>

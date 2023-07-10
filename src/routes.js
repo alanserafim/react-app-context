@@ -9,20 +9,14 @@ export default function Router() {
   return (
     <BrowserRouter>
       <UsuarioProvider>
+      <CarrinhoProvider>
         <Routes>
           <Route exact path='/' element={<Login />} />
-          <Route path='/feira' element=
-            {
-              <CarrinhoProvider>
-                <Feira />
-              </CarrinhoProvider>
-            }
-          />
+          <Route path='/feira' element={<Feira />} />
+          <Route  path='/carrinho' element={<Carrinho /> } />
         </Routes>
+        </CarrinhoProvider>
       </UsuarioProvider>
-      <Routes>
-        <Route  path='/carrinho' element={<Carrinho />} />
-      </Routes>
     </BrowserRouter>
   )
 }
